@@ -1,0 +1,42 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://cdn.vox-cdn.com/thumbor/yBLSQdHF7c3KwU6iaLSozVH1ZhU=/0x0:2000x1335/1200x800/filters:focal(946x436:1266x756)/cdn.vox-cdn.com/uploads/chorus_image/image/65429338/2018_09_06_TheWolves_023.0.jpg');">
+  <div class="banner-content">
+    <h1>Become the <strong>Bartender</strong> you always dreamt of🍸🍹</h1>
+    <p>Try our recipes from all around the World!!😋</p>
+    <%= link_to "Add a cocktail", new_cocktail_path, class: "btn btn-primary btn-lg" %>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+      <%= link_to cocktail_path(cocktail) do %>
+      <div class="card" style="width: 23rem;">
+
+        <img src='https://source.unsplash.com/200x200/?<%= cocktail.name %>' class="card-img-top" alt="...">
+
+        <div class="card-body">
+          <h5 class="card-title"><%= cocktail.name %></h5>
+
+          <% if cocktail.doses.count > 0  %>
+            <p class="card-text"><%= cocktail.doses.first.description %></p>
+          <% end %>
+
+
+
+          <%= link_to "show details", cocktail_path(cocktail), class: 'btn btn-primary'%>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
